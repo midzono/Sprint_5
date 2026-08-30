@@ -5,40 +5,38 @@ from data import MAIN_URL
 from locators import MainPageLocators
 
 
-def is_active(element):
-    return "current" in element.get_attribute("class")
+class TestConstructor:
 
+    def test_switch_to_buns(self, driver):
+        wait = WebDriverWait(driver, 10)
+        driver.get(MAIN_URL)
 
-def test_switch_to_buns(driver):
-    wait = WebDriverWait(driver, 10)
-    driver.get(MAIN_URL)
+        wait.until(EC.element_to_be_clickable(MainPageLocators.SAUCES_TAB)).click()
+        wait.until(EC.element_to_be_clickable(MainPageLocators.BUNS_TAB)).click()
 
-    #Сначала уходим с вкладки «Булки», затем возвращаемся на неё.
-    wait.until(EC.element_to_be_clickable(MainPageLocators.SAUCES_TAB)).click()
-    buns = wait.until(EC.element_to_be_clickable(MainPageLocators.BUNS_TAB))
-    buns.click()
+        active_buns = wait.until(EC.visibility_of_element_located(MainPageLocators.BUNS_TAB_ACTIVE))
 
-    wait.until(lambda _: is_active(buns))
-    assert is_active(buns)
+        assert active_buns.is_displayed()
+        driver.quit()
 
+    def test_switch_to_sauces(self, driver):
+        wait = WebDriverWait(driver, 10)
+        driver.get(MAIN_URL)
 
-def test_switch_to_sauces(driver):
-    wait = WebDriverWait(driver, 10)
-    driver.get(MAIN_URL)
+        wait.until(EC.element_to_be_clickable(MainPageLocators.SAUCES_TAB)).click()
 
-    sauces = wait.until(EC.element_to_be_clickable(MainPageLocators.SAUCES_TAB))
-    sauces.click()
+        active_sauces = wait.until(EC.visibility_of_element_located(MainPageLocators.SAUCES_TAB_ACTIVE))
 
-    wait.until(lambda _: is_active(sauces))
-    assert is_active(sauces)
+        assert active_sauces.is_displayed()
+        driver.quit()
 
+    def test_switch_to_fillings(self, driver):
+        wait = WebDriverWait(driver, 10)
+        driver.get(MAIN_URL)
 
-def test_switch_to_fillings(driver):
-    wait = WebDriverWait(driver, 10)
-    driver.get(MAIN_URL)
+        wait.until(EC.element_to_be_clickable(MainPageLocators.FILLINGS_TAB)).click()
 
-    fillings = wait.until(EC.element_to_be_clickable(MainPageLocators.FILLINGS_TAB))
-    fillings.click()
+        active_fillings = wait.until(EC.visibility_of_element_located(MainPageLocators.FILLINGS_TAB_ACTIVE))
 
-    wait.until(lambda _: is_active(fillings))
-    assert is_active(fillings)
+        assert active_fillings.is_displayed()
+        driver.quit()
