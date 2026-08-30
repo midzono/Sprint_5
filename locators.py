@@ -5,10 +5,13 @@ class MainPageLocators:
     LOGIN_ACCOUNT_BUTTON = (By.XPATH, "//button[normalize-space()='Войти в аккаунт']")  #Кнопка «Войти в аккаунт» на главной странице
     PERSONAL_ACCOUNT_LINK = (By.XPATH, "//*[normalize-space()='Личный Кабинет']")  #Ссылка «Личный кабинет» в шапке
     CONSTRUCTOR_LINK = (By.XPATH, "//*[normalize-space()='Конструктор']")  #Ссылка «Конструктор» в шапке
-    LOGO = (By.XPATH, "//header//a[.//*[name()='svg' and @viewBox='0 0 290 50']]")  #Логотип Stellar Burgers
+    LOGO = (By.XPATH, "//header//a[@href='/'][.//*[name()='svg']]")  #Логотип Stellar Burgers
     BUNS_TAB = (By.XPATH, "//span[normalize-space()='Булки']/parent::*")  #Вкладка «Булки»
     SAUCES_TAB = (By.XPATH, "//span[normalize-space()='Соусы']/parent::*")  #Вкладка «Соусы»
     FILLINGS_TAB = (By.XPATH, "//span[normalize-space()='Начинки']/parent::*")  #Вкладка «Начинки»
+    BUNS_TAB_ACTIVE = (By.XPATH, "//*[contains(@class, 'tab_tab_type_current') and .//span[normalize-space()='Булки']]")  #Активная вкладка «Булки»
+    SAUCES_TAB_ACTIVE = (By.XPATH, "//*[contains(@class, 'tab_tab_type_current') and .//span[normalize-space()='Соусы']]")  #Активная вкладка «Соусы»
+    FILLINGS_TAB_ACTIVE = (By.XPATH, "//*[contains(@class, 'tab_tab_type_current') and .//span[normalize-space()='Начинки']]")  #Активная вкладка «Начинки»
     ASSEMBLE_BURGER_TITLE = (By.XPATH, "//h1[normalize-space()='Соберите бургер']")  #Заголовок конструктора
 
 

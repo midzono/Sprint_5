@@ -16,9 +16,7 @@ def driver():
     browser = webdriver.Chrome(options=chrome_options)
     browser.implicitly_wait(3)
 
-    yield browser
-
-    browser.quit()
+    return browser
 
 
 @pytest.fixture
@@ -26,7 +24,7 @@ def user_credentials():
     return {
         "name": USER_NAME,
         "email": generate_email(),
-        "password": generate_password(),
+        "password": generate_password()
     }
 
 
