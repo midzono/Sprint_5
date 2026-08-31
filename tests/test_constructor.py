@@ -17,7 +17,6 @@ class TestConstructor:
         active_buns = wait.until(EC.visibility_of_element_located(MainPageLocators.BUNS_TAB_ACTIVE))
 
         assert active_buns.is_displayed()
-        driver.quit()
 
     def test_switch_to_sauces(self, driver):
         wait = WebDriverWait(driver, 10)
@@ -28,7 +27,6 @@ class TestConstructor:
         active_sauces = wait.until(EC.visibility_of_element_located(MainPageLocators.SAUCES_TAB_ACTIVE))
 
         assert active_sauces.is_displayed()
-        driver.quit()
 
     def test_switch_to_fillings(self, driver):
         wait = WebDriverWait(driver, 10)
@@ -39,4 +37,3 @@ class TestConstructor:
         active_fillings = wait.until(EC.visibility_of_element_located(MainPageLocators.FILLINGS_TAB_ACTIVE))
 
         assert active_fillings.is_displayed()
-        driver.quit()
